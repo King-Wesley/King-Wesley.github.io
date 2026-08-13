@@ -3,16 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>King-Wesley</title>
+  <title>King-Wesley | Personal Website</title>
   <style>
     :root {
-      color-scheme: light;
-      --bg: #f7f4ee;
-      --text: #202124;
-      --muted: #666a73;
-      --accent: #2f6f73;
-      --line: #ded8cf;
-      --panel: #ffffff;
+      color-scheme: dark;
+      --bg: #101216;
+      --panel: #171b22;
+      --panel-soft: #202631;
+      --text: #f4f0e8;
+      --muted: #aeb6c2;
+      --accent: #5dd6c7;
+      --accent-2: #f2b84b;
+      --line: rgba(255, 255, 255, 0.12);
+      --shadow: rgba(0, 0, 0, 0.38);
     }
 
     * {
@@ -23,18 +26,54 @@
       margin: 0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
-      background: var(--bg);
+      background:
+        radial-gradient(circle at top left, rgba(93, 214, 199, 0.15), transparent 34rem),
+        linear-gradient(135deg, #101216 0%, #17131b 48%, #111820 100%);
       line-height: 1.6;
     }
 
     main {
-      width: min(920px, calc(100% - 40px));
+      width: min(1080px, calc(100% - 40px));
       margin: 0 auto;
-      padding: 72px 0;
+      padding: 28px 0 48px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 58px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      color: var(--text);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
     }
 
     .hero {
-      padding: 56px 0 44px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.18fr) minmax(280px, 0.82fr);
+      gap: 48px;
+      align-items: center;
+      min-height: calc(100vh - 140px);
+      padding: 58px 0 46px;
       border-bottom: 1px solid var(--line);
     }
 
@@ -48,10 +87,10 @@
     }
 
     h1 {
-      max-width: 760px;
+      max-width: 780px;
       margin: 0;
-      font-size: clamp(42px, 8vw, 78px);
-      line-height: 1;
+      font-size: clamp(46px, 7vw, 86px);
+      line-height: 0.96;
       letter-spacing: 0;
     }
 
@@ -60,6 +99,63 @@
       margin: 28px 0 0;
       color: var(--muted);
       font-size: 19px;
+    }
+
+    .hero-panel {
+      position: relative;
+      overflow: hidden;
+      min-height: 430px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        linear-gradient(150deg, rgba(93, 214, 199, 0.18), transparent 38%),
+        linear-gradient(330deg, rgba(242, 184, 75, 0.16), transparent 42%),
+        var(--panel);
+      box-shadow: 0 24px 70px var(--shadow);
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 6px;
+    }
+
+    .portrait-mark {
+      position: absolute;
+      right: 34px;
+      bottom: 28px;
+      color: rgba(244, 240, 232, 0.92);
+      font-size: 118px;
+      font-weight: 900;
+      line-height: 0.8;
+    }
+
+    .status-card {
+      position: absolute;
+      left: 34px;
+      top: 34px;
+      width: min(260px, calc(100% - 68px));
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(16, 18, 22, 0.72);
+      backdrop-filter: blur(18px);
+    }
+
+    .status-card span {
+      display: block;
+      color: var(--accent-2);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .status-card p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 14px;
     }
 
     .actions {
@@ -78,18 +174,18 @@
       align-items: center;
       justify-content: center;
       min-height: 44px;
-      padding: 0 18px;
-      border: 1px solid var(--text);
+      padding: 0 20px;
+      border: 1px solid var(--accent);
       border-radius: 6px;
-      background: var(--text);
-      color: #fff;
+      background: var(--accent);
+      color: #07110f;
       font-weight: 700;
       text-decoration: none;
     }
 
     .button.secondary {
       background: transparent;
-      color: var(--text);
+      color: var(--accent);
     }
 
     section {
@@ -99,7 +195,7 @@
 
     h2 {
       margin: 0 0 18px;
-      font-size: 24px;
+      font-size: 28px;
     }
 
     .grid {
@@ -109,16 +205,35 @@
     }
 
     .card {
-      min-height: 160px;
-      padding: 22px;
+      min-height: 184px;
+      padding: 24px;
       border: 1px solid var(--line);
       border-radius: 8px;
-      background: var(--panel);
+      background: rgba(23, 27, 34, 0.78);
+      box-shadow: 0 16px 44px rgba(0, 0, 0, 0.18);
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(93, 214, 199, 0.5);
+      background: var(--panel-soft);
     }
 
     .card h3 {
       margin: 0 0 10px;
       font-size: 18px;
+    }
+
+    .tag {
+      display: inline-flex;
+      margin-bottom: 18px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(93, 214, 199, 0.12);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
     }
 
     .card p,
@@ -133,14 +248,24 @@
       font-size: 14px;
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 860px) {
       main {
         width: min(100% - 28px, 920px);
         padding: 36px 0;
       }
 
+      .nav-links {
+        display: none;
+      }
+
       .hero {
+        grid-template-columns: 1fr;
+        min-height: 0;
         padding-top: 36px;
+      }
+
+      .hero-panel {
+        min-height: 300px;
       }
 
       .grid {
@@ -151,37 +276,59 @@
 </head>
 <body>
   <main>
+    <nav>
+      <a class="brand" href="#">King-Wesley</a>
+      <div class="nav-links" aria-label="Primary navigation">
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="https://github.com/King-Wesley">GitHub</a>
+      </div>
+    </nav>
+
     <div class="hero">
-      <p class="eyebrow">Personal Website</p>
-      <h1>Hi, I am King-Wesley.</h1>
-      <p class="intro">
-        这里是我的个人主页。我会把作品、学习记录和一些有意思的想法慢慢放在这里。
-      </p>
-      <div class="actions">
-        <a class="button" href="https://github.com/King-Wesley">GitHub</a>
-        <a class="button secondary" href="mailto:hello@example.com">Contact</a>
+      <div>
+        <p class="eyebrow">Personal Website</p>
+        <h1>Hi, I am King-Wesley.</h1>
+        <p class="intro">
+          我在这里记录项目、学习轨迹和一些正在成形的想法。这个主页会随着我做出的东西一起更新。
+        </p>
+        <div class="actions">
+          <a class="button" href="https://github.com/King-Wesley">View GitHub</a>
+          <a class="button secondary" href="mailto:hello@example.com">Contact Me</a>
+        </div>
+      </div>
+
+      <div class="hero-panel" aria-label="Profile visual">
+        <div class="status-card">
+          <span>Now Building</span>
+          <p>Personal projects, notes, experiments, and a cleaner little corner of the web.</p>
+        </div>
+        <div class="portrait-mark">KW</div>
       </div>
     </div>
 
-    <section>
+    <section id="projects">
       <h2>Projects</h2>
       <div class="grid">
         <article class="card">
+          <span class="tag">Web</span>
           <h3>Project One</h3>
           <p>写一句这个项目做了什么，解决了什么问题。</p>
         </article>
         <article class="card">
+          <span class="tag">Code</span>
           <h3>Project Two</h3>
           <p>这里可以放第二个项目，之后替换成真实内容。</p>
         </article>
         <article class="card">
+          <span class="tag">Notes</span>
           <h3>Notes</h3>
           <p>也可以用来放学习笔记、博客入口或个人介绍。</p>
         </article>
       </div>
     </section>
 
-    <section class="contact">
+    <section id="contact" class="contact">
       <h2>Contact</h2>
       <p>你可以在 GitHub 找到我，或者把这里改成你的邮箱、社交链接。</p>
     </section>
