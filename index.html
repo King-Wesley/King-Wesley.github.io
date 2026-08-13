@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>King-Wesley</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f4ee;
+      --text: #202124;
+      --muted: #666a73;
+      --accent: #2f6f73;
+      --line: #ded8cf;
+      --panel: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    main {
+      width: min(920px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 72px 0;
+    }
+
+    .hero {
+      padding: 56px 0 44px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(42px, 8vw, 78px);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .intro {
+      max-width: 650px;
+      margin: 28px 0 0;
+      color: var(--muted);
+      font-size: 19px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 1px solid var(--text);
+      border-radius: 6px;
+      background: var(--text);
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--text);
+    }
+
+    section {
+      padding: 42px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: 24px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      min-height: 160px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .card p,
+    .contact p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    footer {
+      padding-top: 30px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 720px) {
+      main {
+        width: min(100% - 28px, 920px);
+        padding: 36px 0;
+      }
+
+      .hero {
+        padding-top: 36px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="hero">
+      <p class="eyebrow">Personal Website</p>
+      <h1>Hi, I am King-Wesley.</h1>
+      <p class="intro">
+        这里是我的个人主页。我会把作品、学习记录和一些有意思的想法慢慢放在这里。
+      </p>
+      <div class="actions">
+        <a class="button" href="https://github.com/King-Wesley">GitHub</a>
+        <a class="button secondary" href="mailto:hello@example.com">Contact</a>
+      </div>
+    </div>
+
+    <section>
+      <h2>Projects</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Project One</h3>
+          <p>写一句这个项目做了什么，解决了什么问题。</p>
+        </article>
+        <article class="card">
+          <h3>Project Two</h3>
+          <p>这里可以放第二个项目，之后替换成真实内容。</p>
+        </article>
+        <article class="card">
+          <h3>Notes</h3>
+          <p>也可以用来放学习笔记、博客入口或个人介绍。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact">
+      <h2>Contact</h2>
+      <p>你可以在 GitHub 找到我，或者把这里改成你的邮箱、社交链接。</p>
+    </section>
+
+    <footer>
+      © 2026 King-Wesley. Built with GitHub Pages.
+    </footer>
+  </main>
+</body>
+</html>
