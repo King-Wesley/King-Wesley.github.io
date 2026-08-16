@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>清华大学赴美国数字媒体调研实践支队</title>
+  <meta name="description" content="清华大学赴美国数字媒体调研实践支队官方网站，展示支队介绍、实践地、队员、推送与视频成果。">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f6f7f9;
+      --surface: #ffffff;
+      --surface-2: #eef3f7;
+      --text: #14202e;
+      --muted: #5c6b7a;
+      --primary: #8b1e2d;
+      --primary-dark: #64131f;
+      --accent: #0b6f86;
+      --gold: #c6922e;
+      --line: rgba(20, 32, 46, 0.13);
+      --shadow: 0 18px 48px rgba(20, 32, 46, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans SC", "Microsoft YaHei", "PingFang SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      width: min(1160px, calc(100% - 32px));
+      min-height: 66px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 15px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .nav-links a { text-decoration: none; }
+    .nav-links a:hover { color: var(--primary); }
+
+    .hero {
+      min-height: 640px;
+      display: flex;
+      align-items: flex-end;
+      color: #fff;
+      background:
+        linear-gradient(90deg, rgba(16, 24, 36, 0.92) 0%, rgba(16, 24, 36, 0.72) 46%, rgba(16, 24, 36, 0.18) 100%),
+        url("https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=1800&q=85") center / cover;
+    }
+
+    .hero-inner {
+      width: min(1160px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 96px 0 56px;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: #ffd27a;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 0;
+      font-size: clamp(40px, 7vw, 76px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      margin: 24px 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 19px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 1px solid #fff;
+      border-radius: 6px;
+      background: #fff;
+      color: var(--primary-dark);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: #fff;
+    }
+
+    main {
+      width: min(1160px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 72px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.35fr) minmax(0, 0.65fr);
+      gap: 42px;
+      align-items: start;
+      margin-bottom: 28px;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--primary);
+      font-size: clamp(26px, 4vw, 40px);
+      line-height: 1.2;
+    }
+
+    .lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .stat {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--accent);
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .place-grid,
+    .member-grid,
+    .post-grid,
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .place-card,
+    .member-card,
+    .post-card,
+    .video-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .place-card img,
+    .video-thumb {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      background: var(--surface-2);
+    }
+
+    .card-body { padding: 22px; }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      line-height: 1.35;
+    }
+
+    .card-body p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .tag {
+      display: inline-flex;
+      margin-bottom: 12px;
+      padding: 4px 9px;
+      border-radius: 6px;
+      background: rgba(11, 111, 134, 0.1);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .member-card { padding: 22px; }
+
+    .avatar {
+      width: 72px;
+      height: 72px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 50%;
+      background: var(--surface-2);
+      color: var(--primary);
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    .role {
+      margin: -4px 0 12px;
+      color: var(--gold);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .post-card {
+      display: flex;
+      min-height: 210px;
+      flex-direction: column;
+      padding: 22px;
+      text-decoration: none;
+      transition: transform 160ms ease, border-color 160ms ease;
+    }
+
+    .post-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(139, 30, 45, 0.38);
+    }
+
+    .post-card time {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .post-card p { color: var(--muted); }
+
+    .post-link {
+      margin-top: auto;
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .video-frame { background: #0f1722; }
+
+    .video-frame iframe {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+    }
+
+    .video-thumb {
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background:
+        linear-gradient(135deg, rgba(139, 30, 45, 0.84), rgba(11, 111, 134, 0.78)),
+        url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85") center / cover;
+      font-size: 42px;
+      font-weight: 900;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 140px minmax(0, 1fr);
+      gap: 20px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+
+    .timeline-item strong { color: var(--primary); }
+
+    .timeline-item p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .contact-band {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: center;
+      padding: 28px;
+      border-radius: 8px;
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .contact-band p {
+      margin: 8px 0 0;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .contact-band .button { border-color: #fff; }
+
+    footer {
+      padding: 30px 0 44px;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+      }
+
+      .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+
+      .hero {
+        min-height: 560px;
+        background-position: 58% center;
+      }
+
+      .section-head,
+      .contact-band {
+        grid-template-columns: 1fr;
+      }
+
+      .stats,
+      .place-grid,
+      .member-grid,
+      .post-grid,
+      .video-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .hero-inner { padding: 76px 0 44px; }
+      .hero-copy { font-size: 17px; }
+      section { padding: 52px 0; }
+
+      .stats,
+      .place-grid,
+      .member-grid,
+      .post-grid,
+      .video-grid,
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="主导航">
+      <a class="brand" href="#">
+        <span class="brand-mark">THU</span>
+        <span>赴美国数字媒体调研实践支队</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about">支队介绍</a>
+        <a href="#places">实践地</a>
+        <a href="#members">支队员</a>
+        <a href="#posts">推送链接</a>
+        <a href="#videos">视频展示</a>
+        <a href="#contact">联系我们</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" aria-label="网站首页">
+    <div class="hero-inner">
+      <p class="eyebrow">Tsinghua University Social Practice Team</p>
+      <h1>走近美国数字媒体生态，记录技术、内容与社会的交汇</h1>
+      <p class="hero-copy">
+        我们是清华大学赴美国数字媒体调研实践支队，将围绕数字内容生产、平台传播、媒体技术、文化交流与青年观察展开走访调研，并以图文、视频和报告记录实践过程。
+      </p>
+      <div class="hero-actions">
+        <a class="button" href="#posts">查看实践推送</a>
+        <a class="button secondary" href="#videos">观看视频成果</a>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section id="about">
+      <div class="section-head">
+        <h2>支队介绍</h2>
+        <p class="lead">
+          支队由来自清华大学不同院系的同学组成，聚焦数字媒体在美国的产业实践、技术应用与公共传播。我们希望通过实地访谈、机构参访、案例研究和内容创作，形成兼具学术观察与青年表达的实践成果。
+        </p>
+      </div>
+      <div class="stats" aria-label="支队概览">
+        <div class="stat">
+          <strong>10+</strong>
+          <span>支队成员，可替换为实际人数</span>
+        </div>
+        <div class="stat">
+          <strong>5</strong>
+          <span>重点实践城市或机构</span>
+        </div>
+        <div class="stat">
+          <strong>3</strong>
+          <span>核心调研方向</span>
+        </div>
+        <div class="stat">
+          <strong>2026</strong>
+          <span>暑期社会实践</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="places">
+      <div class="section-head">
+        <h2>实践地介绍</h2>
+        <p class="lead">
+          这里可以展示你们计划或已经走访的城市、学校、媒体机构、科技公司、文化空间等。下方图片和文字都可以按实际行程替换。
+        </p>
+      </div>
+      <div class="place-grid">
+        <article class="place-card">
+          <img src="https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=900&q=85" alt="美国城市天际线">
+          <div class="card-body">
+            <span class="tag">城市观察</span>
+            <h3>纽约 New York</h3>
+            <p>关注新闻媒体、内容平台、创意产业与城市公共传播的互动关系。</p>
+          </div>
+        </article>
+        <article class="place-card">
+          <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=900&q=85" alt="旧金山金门大桥">
+          <div class="card-body">
+            <span class="tag">技术生态</span>
+            <h3>旧金山湾区 Bay Area</h3>
+            <p>走近科技公司、高校与创业社区，观察人工智能与数字媒体的结合。</p>
+          </div>
+        </article>
+        <article class="place-card">
+          <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=900&q=85" alt="大学校园中的学生">
+          <div class="card-body">
+            <span class="tag">校园访谈</span>
+            <h3>高校与研究机构</h3>
+            <p>围绕媒介研究、传播教育与青年媒体使用习惯开展交流访谈。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="members">
+      <div class="section-head">
+        <h2>支队员介绍</h2>
+        <p class="lead">
+          将下面的姓名、分工和简介替换为真实队员信息即可。若需要放照片，可以把头像字母替换成图片。
+        </p>
+      </div>
+      <div class="member-grid">
+        <article class="member-card">
+          <div class="avatar">队</div>
+          <h3>队长姓名</h3>
+          <p class="role">队长 / 统筹协调</p>
+          <p>负责行程安排、外联沟通与整体成果把控。</p>
+        </article>
+        <article class="member-card">
+          <div class="avatar">研</div>
+          <h3>队员姓名</h3>
+          <p class="role">调研访谈</p>
+          <p>负责访谈提纲、资料整理与调研报告撰写。</p>
+        </article>
+        <article class="member-card">
+          <div class="avatar">影</div>
+          <h3>队员姓名</h3>
+          <p class="role">摄影摄像</p>
+          <p>负责实践影像记录、短片拍摄与后期剪辑。</p>
+        </article>
+        <article class="member-card">
+          <div class="avatar">文</div>
+          <h3>队员姓名</h3>
+          <p class="role">推送编辑</p>
+          <p>负责公众号推送、新闻稿和社交媒体内容。</p>
+        </article>
+        <article class="member-card">
+          <div class="avatar">设</div>
+          <h3>队员姓名</h3>
+          <p class="role">视觉设计</p>
+          <p>负责海报、排版、网页视觉与成果展示物料。</p>
+        </article>
+        <article class="member-card">
+          <div class="avatar">数</div>
+          <h3>队员姓名</h3>
+          <p class="role">资料与数据</p>
+          <p>负责案例库、数据图表和文献资料归档。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="schedule">
+      <div class="section-head">
+        <h2>实践安排</h2>
+        <p class="lead">
+          可以在这里展示调研阶段、访问路线与成果产出节奏，帮助访问者快速理解支队的实践过程。
+        </p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <strong>前期准备</strong>
+          <p>确定调研主题，联系访问单位，完成资料搜集、访谈提纲和传播计划。</p>
+        </div>
+        <div class="timeline-item">
+          <strong>实地调研</strong>
+          <p>前往美国相关城市和机构开展参访、访谈、观察与影像记录。</p>
+        </div>
+        <div class="timeline-item">
+          <strong>成果整理</strong>
+          <p>发布系列推送、剪辑实践视频、形成调研报告和展示网页。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="posts">
+      <div class="section-head">
+        <h2>推送链接</h2>
+        <p class="lead">
+          将卡片中的链接替换为公众号文章、新闻稿、B 站专栏或其他发布平台地址。没有发布前也可以先保留为预告。
+        </p>
+      </div>
+      <div class="post-grid">
+        <a class="post-card" href="#" target="_blank" rel="noopener">
+          <time datetime="2026-07-01">2026.07.01</time>
+          <h3>出发前记：我们为什么关注数字媒体</h3>
+          <p>介绍支队成立背景、调研问题与实践目标。</p>
+          <span class="post-link">阅读推送</span>
+        </a>
+        <a class="post-card" href="#" target="_blank" rel="noopener">
+          <time datetime="2026-07-15">2026.07.15</time>
+          <h3>实践札记：一次媒体机构参访</h3>
+          <p>记录参访见闻、访谈收获和支队成员观察。</p>
+          <span class="post-link">阅读推送</span>
+        </a>
+        <a class="post-card" href="#" target="_blank" rel="noopener">
+          <time datetime="2026-08-01">2026.08.01</time>
+          <h3>成果发布：数字媒体调研报告</h3>
+          <p>汇总核心发现、案例分析和实践成果。</p>
+          <span class="post-link">阅读推送</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="videos">
+      <div class="section-head">
+        <h2>视频展示</h2>
+        <p class="lead">
+          如果视频发布在 B 站、腾讯视频或 YouTube，可以把下方 iframe 的地址替换为平台提供的嵌入链接。
+        </p>
+      </div>
+      <div class="video-grid">
+        <article class="video-card">
+          <div class="video-frame">
+            <div class="video-thumb">01</div>
+          </div>
+          <div class="card-body">
+            <h3>实践预告片</h3>
+            <p>用 1-2 分钟介绍支队主题、路线和期待。</p>
+          </div>
+        </article>
+        <article class="video-card">
+          <div class="video-frame">
+            <div class="video-thumb">02</div>
+          </div>
+          <div class="card-body">
+            <h3>调研纪录片</h3>
+            <p>记录实地走访、访谈片段与成员思考。</p>
+          </div>
+        </article>
+        <article class="video-card">
+          <div class="video-frame">
+            <div class="video-thumb">03</div>
+          </div>
+          <div class="card-body">
+            <h3>成果汇报视频</h3>
+            <p>集中呈现调研发现、实践收获与后续展望。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-band">
+        <div>
+          <h2>联系我们</h2>
+          <p>邮箱：your-team@example.com ｜ 微信公众号：清华大学实践支队名称 ｜ GitHub：your-github-name</p>
+        </div>
+        <a class="button" href="mailto:your-team@example.com">发送邮件</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 清华大学赴美国数字媒体调研实践支队. Built with GitHub Pages.
+  </footer>
+</body>
+</html>
